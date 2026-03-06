@@ -1,18 +1,19 @@
-﻿// Requisito 1: Nossa calculadora deve permitir a soma de dois numeros 
- // Requisito 2: Nossa calculadora deve permitir a subtracao de dois numeros 
- // Requisito 3: Nossa calculadora deve permitir a multiplicaçao de dois numeros
- // Requisito 4: Nossa calculadora deve permitir a divisao de dois numeros
- // Requisito 5: Nossa calculadora deve permitir que o usuário continue utilizando o sistema até decidir sair
- // Requisito 6: Nossa calculadora deve dar a possibilidade de produizir a tabuada de um número informado
- // Requisito 7: Nossa calculadora deve dar a possibilidade de visualizar o histórico de operações     
+﻿// Requisito 1: Nossa calculadora deve permitir a soma de dois numeros
+// Requisito 2: Nossa calculadora deve permitir a subtracao de dois numeros
+// Requisito 3: Nossa calculadora deve permitir a multiplicaçao de dois numeros
+// Requisito 4: Nossa calculadora deve permitir a divisao de dois numeros
+// Requisito 5: Nossa calculadora deve permitir que o usuário continue utilizando o sistema até decidir sair
+// Requisito 6: Nossa calculadora deve dar a possibilidade de produizir a tabuada de um número informado
+// Requisito 7: Nossa calculadora deve dar a possibilidade de visualizar o histórico de operações
 
 {
-    string[] historicoOperacoes = new string[100]; // array/vetor
+    string[] historicoOperacoes = new string[100];
     int contadorOperacoes = 0;
 
+    while (true)
 
-    while (true) 
     {
+
         Console.Clear();
 
 
@@ -27,25 +28,23 @@
         Console.WriteLine("6 - Histórico");
         Console.WriteLine("S - Sair");
 
-        Console.ReadLine();
+
         Console.WriteLine("Selecione uma opçao valida: ");
         string? operacaoSelcionada = Console.ReadLine();
 
+
         if (operacaoSelcionada == "S" || operacaoSelcionada == "s")
         {
-    
             return;
         }
+
+
 
         if (operacaoSelcionada == "5")
         {
             Console.WriteLine("Digite o numero que deseja gerar a tabuada: ");
             int numeroTabuada = Convert.ToInt32(Console.ReadLine());
 
-            // para cada...
-            // 1. contador/iteraçao
-            // 2. enquanto for verdadeiro
-            // 3. iteraçao da variavel contadora
             for (int contador = 1; contador <= 10; contador = contador + 1)
             {
                 int resultadoTabuada = numeroTabuada * contador;
@@ -53,11 +52,11 @@
                 Console.WriteLine(operacaoTabuada + resultadoTabuada);
             }
 
+
             Console.ReadLine();
             continue;
         }
-
-        else if (operacaoSelcionada == "6") // visualizar o historico de operaçoes
+        else if (operacaoSelcionada == "6")
         {
             Console.WriteLine("Histórico de operaçoes: ");
             Console.WriteLine("------------------------");
@@ -71,6 +70,7 @@
             continue;
         }
 
+
         {
             Console.Write("Digite o primeiro número: ");
             string? strPrimeiroNumero = Console.ReadLine();
@@ -78,12 +78,8 @@
             Console.Write("Digite o segundo número: ");
             string? strSegundoNumero = Console.ReadLine();
 
-            Console.ReadLine();
-
             Console.WriteLine("O primeiro número digitado foi: " + strPrimeiroNumero);
             Console.WriteLine("O segundo número digitado foi: " + strSegundoNumero);
-
-            Console.ReadLine();
 
             bool primeiroNumeroVazio = string.IsNullOrEmpty(strPrimeiroNumero);
             bool segundoNumeroVazio = string.IsNullOrEmpty(strSegundoNumero);
@@ -122,7 +118,8 @@
                     if (segundoNumero == 0)
                     {
                         Console.WriteLine("Não é possível fazer uma divisão por zero. Tente novamente.");
-                        return;
+                        Console.ReadLine();
+                        continue;
                     }
 
                     resultado = primeiroNumero / segundoNumero;
@@ -146,4 +143,3 @@
         }
     }
 }
-
